@@ -14,11 +14,10 @@ public class Solution {
         // Выводим задачи в обратном порядке: от последней к первой
 
         Scanner scanner = new Scanner(System.in);
-        String str = "";
         ArrayList<String> list = new ArrayList<>();
-        while (scanner.hasNext()) {
-            str = scanner.nextLine();
-            if (!str.equals(" ")) {
+        while (true) {
+            String str = scanner.nextLine();
+            if (!str.equals("")) {
                 list.add(str);
             } else {
                 for (int i = list.size() - 1; i >= 0; i--) {
@@ -27,8 +26,5 @@ public class Solution {
                 return;
             }
         }
-
-
-
     }
 }
