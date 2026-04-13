@@ -1,5 +1,6 @@
 package ru.javarush.java.core.level12.task16;
 
+import java.net.URI;
 import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -15,10 +16,19 @@ public class Solution {
         // Сначала выводим информацию о типе и размере
         // Только после вывода сохраняем изображение на диск
 
-        URL url = new URL("https://httpbin.org/image/png");
         HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder(url.toURI()).build();
-        HttpResponse response =
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("https://httpbin.org/image/png"))
+                .GET()
+                .build();
+        HttpResponse<byte[]> response = client.send(request, HttpResponse.BodyHandlers.ofByteArray());
+        String contentType = response.headers()
+                .firstValue("Content-Type")
+                .orElse("application/octet-stream");
+        long fileSize = response.body().length;
+        System.out.println("Content-Type: " + contentType);
+        System.out.println("File size: " + fileSize);
+
 
     }
 }
