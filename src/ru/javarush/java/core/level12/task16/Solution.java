@@ -1,11 +1,9 @@
 package ru.javarush.java.core.level12.task16;
 
-import java.net.URI;
+import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.nio.file.Files;
-import java.nio.file.Path;
 
 public class Solution {
     public static void main(String[] args) throws Exception {
@@ -17,7 +15,10 @@ public class Solution {
         // Сначала выводим информацию о типе и размере
         // Только после вывода сохраняем изображение на диск
 
-
+        URL url = new URL("https://httpbin.org/image/png");
+        HttpClient client = HttpClient.newHttpClient();
+        HttpRequest request = HttpRequest.newBuilder(url.toURI()).build();
+        HttpResponse response =
 
     }
 }
