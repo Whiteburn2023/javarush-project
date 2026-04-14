@@ -5,6 +5,8 @@ import java.net.URL;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.nio.file.Files;
+import java.nio.file.Path;
 
 public class Solution {
     public static void main(String[] args) throws Exception {
@@ -26,9 +28,9 @@ public class Solution {
                 .firstValue("Content-Type")
                 .orElse("application/octet-stream");
         long fileSize = response.body().length;
-        System.out.println("Content-Type: " + contentType);
-        System.out.println("File size: " + fileSize);
 
+        Files.write(Path.of("image04.png"), response.body());
+        System.out.println("Тип: " + contentType + ", Размер: " + fileSize + " байт");
 
     }
 }
