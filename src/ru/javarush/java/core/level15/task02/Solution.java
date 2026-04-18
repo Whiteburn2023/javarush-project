@@ -10,20 +10,3 @@ public class Solution {
         System.out.println("Возраст: " + person.getMemberAge());
     }
 }
-class Person{
-    private String memberName;
-    private int memberAge;
-
-    public Person(String memberName, int memberAge) {
-        this.memberName = memberName;
-        this.memberAge = memberAge;
-    }
-
-    public String getMemberName() {
-        return memberName;
-    }
-
-    public int getMemberAge() {
-        return memberAge;
-    }
-}
