@@ -1,7 +1,7 @@
 package ru.javarush.java.core.level24.task18;
 
 // Класс ресурса, который нужно корректно закрывать
-class MagicArtifact {
+class MagicArtifact implements AutoCloseable{
 
     @Override
     public void close() {
@@ -14,8 +14,12 @@ public class Solution {
     public static void main(String[] args) {
         // try-with-resources гарантирует автоматический вызов close()
         // даже если внутри блока произойдет исключение
+try (MagicArtifact magicArtifact = new MagicArtifact()){
 
-            System.out.println("Идёт работа с магическим артефактом");
+    System.out.println("Идёт работа с магическим артефактом");
+}
+
+
             // Здесь могла бы быть любая логика работы с артефактом
 
         // К этому моменту артефакт уже закрыт, сообщение выведено

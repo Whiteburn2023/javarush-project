@@ -1,0 +1,13 @@
+package ru.javarush.java.core.level25.task09;
+
+public class Solution {
+    public static void main(String[] args) {
+        // Создаем два объекта SystemCore, чтобы увидеть порядок инициализации.
+        // При первом создании класса сначала выполнится статический блок (один раз за всю программу)
+        SystemCore systemCore1 = new SystemCore();
+
+        // При втором создании выполнится только нестатический блок (статический уже отработал).
+        SystemCore systemCore2 = new SystemCore();
+
+    }
+}
