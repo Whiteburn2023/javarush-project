@@ -9,4 +9,6 @@ public interface TaskRepository {
 
     List<String> getAll();
 
+    List<Task> getTasks();
+
 }

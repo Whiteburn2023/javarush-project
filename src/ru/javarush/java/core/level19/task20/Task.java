@@ -6,5 +6,12 @@ public abstract class Task {
 
     abstract void complete();
 
+    public Task(String title) {
+        this.title = title;
+    }
+
+    public String getTitle() {
+        return title;
+    }
 }
 
